@@ -1,0 +1,13 @@
+h5 {
+  font-weight: bold; }
+
+.column-height-set {
+  height: 150px; }
+
+.custom-button-props {
+  margin: 20px; }
+
+.header-properties {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px; }
