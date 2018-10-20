@@ -1,11 +1,15 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import TableRow from './TableRow';
 import DetailsSurvey from './DetailsSurvey';
 
-class SurveyInformation extends Component {
-  constructor(props) {
+type State ={data:any};
+type Props ={/**/};
+
+class SurveyInformation extends React.Component<Props, State> {
+  constructor(props:any) {
     super(props);
     this.state = {data: ""};
   }

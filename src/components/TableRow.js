@@ -1,7 +1,8 @@
-import React from 'react';
+// @flow
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 
-const TableRow = ({survey}) =>(
+const TableRow = ({survey}:Object) =>(
       <tr>
         <td>{survey.id}</td>
         <td>{survey.title}</td>

@@ -1,13 +1,25 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import axios from 'axios';
 import {RadioGroup, Radio} from 'react-radio-group';
 import { Link } from 'react-router-dom';
 
-class DetailsSurvey extends Component {
-  constructor(props){
+type State ={
+  id: number,
+  details: any,
+  selectedValue: any,
+  fields: Object,
+  msg: string,
+  alertClass: string,
+  isLoaded: boolean
+};
+type Props ={/**/};
+
+class DetailsSurvey extends React.Component<Props, State> {
+  constructor(props:any){
     super(props);
     this.state = {
-      id:this.props.match.params.postID,
+      id:(this:any).props.match.params.postID,
       details: ""  ,
       selectedValue:'',
       fields: {},
@@ -15,8 +27,8 @@ class DetailsSurvey extends Component {
       alertClass:'',
       isLoaded: false,
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    (this:any).handleChange = this.handleChange.bind(this);
+    (this:any).handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -24,14 +36,14 @@ class DetailsSurvey extends Component {
     .then(res =>this.setState({details: res.data.survey}) )
   }
 
-  handleChange(value, event) {
+  handleChange(value:any, event:Object) {
     let name = event.target.name;
     let fields = this.state.fields;
         fields[name] = value;
         this.setState({fields});
   }
 
-  handleSubmit(event) {
+  handleSubmit(event:Object) {
     event.preventDefault();
     let me = this;
     const fields =this.state.fields;
@@ -55,7 +67,7 @@ class DetailsSurvey extends Component {
         isLoaded: true
       });
     }
-    this.formRef.reset();
+    (this:any).formRef.reset();
   }
 
   render() {
@@ -82,7 +94,7 @@ class DetailsSurvey extends Component {
       <div>
        {this.state.isLoaded? <div className={this.state.alertClass}>{this.state.msg}</div>:null}
         <h3 className="text-center header-properties">{this.state.details.title}</h3>
-         <form onSubmit={this.handleSubmit} ref={(ref) => this.formRef = ref}>
+         <form onSubmit={this.handleSubmit} ref={(ref) => (this:any).formRef = ref}>
             <div className="row">
             {questions}
             </div>

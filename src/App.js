@@ -1,8 +1,12 @@
-import React, { Component } from 'react';
+// @flow
+import * as React from 'react';
 import SurveyInformation from './components/SurveyInformation';
 import './App.css';
 
-class App extends Component {
+type State ={/**/};
+type Props ={/**/};
+
+class App extends React.Component<Props, State> {
   render() {
     return (
       <div className="container-fluid">
